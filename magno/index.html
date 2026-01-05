@@ -6,33 +6,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script>
-    (function () {
+    function abrirMapa() {
       const lat = -15.8163852;
       const lng = -48.0214310;
       const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-      const isAndroid = /Android/.test(navigator.userAgent);
 
       if (isIOS) {
-        // Apple Maps deep link
-        window.location.href = `maps://?q=Casa+do+Magno&ll=${lat},${lng}`;
-        setTimeout(() => {
-          window.location.href = `https://maps.apple.com/?q=Casa+do+Magno&ll=${lat},${lng}`;
-        }, 800);
-      } else if (isAndroid) {
-        // Google Maps deep link
-        window.location.href = `geo:${lat},${lng}?q=${lat},${lng}(Casa+do+Magno)`;
-        setTimeout(() => {
-          window.location.href = `https://www.google.com/maps?q=${lat},${lng}`;
-        }, 800);
+        window.location.href = `https://maps.apple.com/?q=Casa+do+Magno&ll=${lat},${lng}`;
       } else {
-        // Desktop / outros
         window.location.href = `https://www.google.com/maps?q=${lat},${lng}`;
       }
-    })();
+    }
   </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    p {
+      color: #555;
+      margin-bottom: 30px;
+    }
+    button, a {
+      display: block;
+      margin: 15px auto;
+      max-width: 320px;
+      padding: 15px;
+      background: #ffffff;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #000;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    button:hover, a:hover {
+      background: #eaeaea;
+    }
+  </style>
 </head>
 
 <body>
-  <p>Redirecionando para a Casa do Magno...</p>
+
+  <h1>🏠 Casa do Magno</h1>
+  <p>Escolha como chegar:</p>
+
+  <!-- BOTÃO INTELIGENTE -->
+  <button onclick="abrirMapa()">
+    📍 Abrir no mapa
+  </button>
+
+  <!-- OPÇÕES MANUAIS -->
+  <a href="https://m.uber.com/ul/?action=setPickup&dropoff[latitude]=-15.8163852&dropoff[longitude]=-48.0214310&dropoff[nickname]=Casa%20do%20Magno">
+    🚗 Uber
+  </a>
+
+  <a href="https://waze.com/ul?ll=-15.8163852,-48.0214310&navigate=yes">
+    🚙 Waze
+  </a>
+
 </body>
 </html>
