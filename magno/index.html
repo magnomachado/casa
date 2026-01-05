@@ -4,21 +4,6 @@
   <meta charset="UTF-8">
   <title>Casa do Magno</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <script>
-    function abrirMapa() {
-      const lat = -15.8163852;
-      const lng = -48.0214310;
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-
-      if (isIOS) {
-        window.location.href = `https://maps.apple.com/?q=Casa+do+Magno&ll=${lat},${lng}`;
-      } else {
-        window.location.href = `https://www.google.com/maps?q=${lat},${lng}`;
-      }
-    }
-  </script>
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -33,7 +18,7 @@
       color: #555;
       margin-bottom: 30px;
     }
-    button, a {
+    a {
       display: block;
       margin: 15px auto;
       max-width: 320px;
@@ -43,27 +28,27 @@
       text-decoration: none;
       font-size: 18px;
       color: #000;
-      border: none;
-      cursor: pointer;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
-    button:hover, a:hover {
+    a:hover {
       background: #eaeaea;
     }
   </style>
 </head>
-
 <body>
 
   <h1>🏠 Casa do Magno</h1>
+  <p>Rua 4 Chacara 7 Casa 34, Cond. Flor do Cerrado. Vicente Pires, DF</p>
   <p>Escolha como chegar:</p>
 
-  <!-- BOTÃO INTELIGENTE -->
-  <button onclick="abrirMapa()">
-    📍 Maps
-  </button>
+  <a href="https://www.google.com/maps?q=-15.8163852,-48.0214310">
+    📍 Google Maps
+  </a>
 
-  <!-- OPÇÕES MANUAIS -->
+  <a href="https://maps.apple.com/?q=Casa+do+Magno&ll=-15.8163852,-48.0214310">
+    🍎 Apple Maps
+  </a>
+  
   <a href="https://m.uber.com/ul/?action=setPickup&dropoff[latitude]=-15.8163852&dropoff[longitude]=-48.0214310&dropoff[nickname]=Casa%20do%20Magno">
     🚗 Uber
   </a>
